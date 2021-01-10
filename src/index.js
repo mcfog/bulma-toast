@@ -124,7 +124,7 @@ class Toast {
     this.offsetRight = options.offsetRight
 
     let style = `width:auto;pointer-events:auto;display:inline-flex;white-space:pre-wrap;opacity:${this.opacity};`
-    const classes = ['notification']
+    const classes = ['toast', 'notification']
     if (this.type) classes.push(this.type)
     if (this.animate && this.animate.in) {
       const animateInClass = `animate__${this.animate.in}`
@@ -143,8 +143,6 @@ class Toast {
         this.destroy()
       })
       this.element.insertAdjacentElement('afterbegin', dismissButton)
-    } else {
-      style += 'padding: 1.25rem 1.5rem'
     }
     if (this.closeOnClick) {
       this.element.addEventListener('click', () => {
